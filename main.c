@@ -1,5 +1,12 @@
 #include "main.h"
-#include <string.h>
+
+/**
+* main - function that execute the commands.
+* @argc: argument count
+* @argv: array containing the command and the options
+* @env: array containing all the environment vars.
+* Return: 0 on success.
+*/
 
 int main(int argc, char **argv, char **env)
 {
