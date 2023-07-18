@@ -4,31 +4,35 @@
 * main - function that execute the commands.
 * @argc: argument count
 * @argv: array containing the command and the options
-* @env: array containing all the environment vars.
 * Return: 0 on success.
 */
 
-int main(int argc, char **argv, char **env)
+int main(int __attribute((unused)) argc, char **argv)
 {
-	char *input, **tokens, *cmd, *init_cmd;
+	char *input, **tokens, *cmd;
 
-	while (1) {
+	while (1)
+	{
 		if (isatty(STDIN_FILENO) == 1)
-			printf("-> ");
+			write(STDOUT_FILENO, "-> ", 3);
 		input = get_input();
-		if (!input) continue;
-		/* Temp code*/
-		if (strcmp(input, "exit") == 0) {
-			free(input);
-			exit(0);
-		}
-		/* end Temp code*/
+		if (!input)
+			continue;
 		tokens = tokenize(input);
+		if (builtin(tokens, input) == 0)
+		{
+			_free(2, input, tokens);
+			continue;
+		}
 		cmd = path_handler(tokens[0]);
+		if (cmd == NULL)
+		{
+			_write_err(argv[0], "command not found: ", tokens[0]);
+			_free(2, input, tokens);
+			continue;
+		}
 		execute(tokens, cmd);
-		free(tokens);
-		free(input);
-		free(cmd);
+		_free(3, input, tokens, cmd);
 	}
 	return (0);
 }
