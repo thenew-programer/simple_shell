@@ -9,7 +9,7 @@
 
 int main(int __attribute((unused)) argc, char **argv)
 {
-	char *input, **tokens, *cmd;
+	char *input, **tokens ;/*, *cmd;*/
 
 	while (1)
 	{
@@ -19,6 +19,7 @@ int main(int __attribute((unused)) argc, char **argv)
 		if (!input)
 			continue;
 		tokens = tokenize(input);
+		/*
 		if (builtin(tokens, input) == 0)
 		{
 			_free(2, input, tokens);
@@ -31,8 +32,17 @@ int main(int __attribute((unused)) argc, char **argv)
 			_free(2, input, tokens);
 			continue;
 		}
+		*/
+		/*
 		execute(tokens, cmd);
 		_free(3, input, tokens, cmd);
+		*/
+		if (execute(tokens, tokens[0]) == -100) {
+			write(STDERR_FILENO, argv[0], _strlen(argv[0]));
+			write(STDERR_FILENO, ": No such file or directory\n", 28);
+		}
+		free(tokens);
+		free(input);
 	}
 	return (0);
 }
