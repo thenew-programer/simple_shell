@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <signal.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <unistd.h>
@@ -13,6 +14,8 @@
 extern char **environ;
 
 #define MAX_BUFFER 2048
+
+
 
 /**
  * struct Builtin - struct that holds count of
