@@ -1,4 +1,6 @@
 #include "main.h"
+#include <errno.h>
+#include <signal.h>
 
 /**
 * main - function that execute the commands.
@@ -7,12 +9,21 @@
 * Return: 0 on success.
 */
 
+volatile sig_atomic_t g_flag = 0;
+
+void int_handler();
+
 int main(int __attribute((unused)) argc, char **argv)
 {
 	char *input, **tokens ;/*, *cmd;*/
+	errno = 0;
+	signal(SIGINT, int_handler);
+
 
 	while (1)
 	{
+		if (g_flag == 1)
+			exit(0);
 		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, "-> ", 3);
 		input = get_input();
@@ -46,5 +57,11 @@ int main(int __attribute((unused)) argc, char **argv)
 		free(input);
 		free(tokens);
 	}
+	printf("hello world\n");
 	return (0);
+}
+
+void int_handler()
+{
+	g_flag = 1;
 }
