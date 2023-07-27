@@ -1,6 +1,4 @@
 # 0x16. C - Simple Shell (ALX PROJECT)
-![explanition](./media/simple_shell.png)
-
  **The Gates of Shell, by Spencer Cheng, featuring Julien Barbier**
  Project to be done in teams of 2 people (your team: Prince Magutshwa, Youssef Bouryal)
 
