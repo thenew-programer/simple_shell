@@ -1,7 +1,6 @@
-<<<<<<< Updated upstream
-# simple_shell (ALX PROJECT)
+### simple_shell (ALX PROJECT)
 ![explanition](./media/simple_shell.png)
-=======
+
 # 0x16. C - Simple Shell
  **The Gates of Shell, by Spencer Cheng, featuring Julien Barbier**
  Project to be done in teams of 2 people (your team: Prince Magutshwa, Youssef Bouryal)
@@ -105,7 +104,3 @@ git shortlog -se \
   > AUTHORS
   ```
 
-
-### OVERVIEW
-![explanition](./media/simple_shell.png)
->>>>>>> Stashed changes
