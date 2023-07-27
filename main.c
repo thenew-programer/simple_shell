@@ -1,6 +1,7 @@
 #include "main.h"
 
 /**
+<<<<<<< Updated upstream
 * main - function that execute the commands.
 * @argc: argument count
 * @argv: array containing the command and the options
@@ -10,9 +11,20 @@
 
 
 int main(int __attribute((unused)) argc, char **argv)
+=======
+ * main - Entry point of the shell program.
+ * @ac: Argument count.
+ * @av: Array of strings containing the arguments.
+ * @env: Array of strings containing the environment variables.
+ * Return: The exit status value.
+ **/
+int main(int ac, char *av[], char **env)
+>>>>>>> Stashed changes
 {
-	char *input, **tokens, *cmd;
+    int count_exe = 1;
+    int status_exit = 0;
 
+<<<<<<< Updated upstream
 
 	while (1)
 	{
@@ -41,6 +53,24 @@ int main(int __attribute((unused)) argc, char **argv)
 		_free(3, input, tokens, cmd);
 	}
 	return (0);
+=======
+    // Ignore unused argument warning for ac
+    (void)ac;
+
+    // Register signal handler for SIGINT (Ctrl+C)
+    signal(SIGINT, signal_handler);
+
+    // If there are additional arguments, run non-interactive mode
+    if (ac > 1)
+    {
+        status_exit = non_interact(av);
+        return status_exit;
+    }
+
+    // Otherwise, run interactive mode
+    status_exit = interactive(av, count_exe, env);
+    return status_exit;
+>>>>>>> Stashed changes
 }
 
 
