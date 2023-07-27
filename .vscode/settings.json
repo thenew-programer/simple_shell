@@ -2,8 +2,6 @@
     "files.associations": {
         "main.h": "c",
         "stdio.h": "c",
-        "signal.h": "c",
-        "types.h": "c",
-        "stat.h": "c"
+        "signal.h": "c"
     }
 }

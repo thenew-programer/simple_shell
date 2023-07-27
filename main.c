@@ -10,10 +10,6 @@
 int main(int __attribute((unused)) argc, char **argv)
 {
 	char *input, **tokens, *cmd;
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
 	while (1)
 	{
