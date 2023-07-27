@@ -7,12 +7,13 @@
 * Return: 0 on success.
 */
 
-
-
 int main(int __attribute((unused)) argc, char **argv)
 {
 	char *input, **tokens, *cmd;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 	while (1)
 	{
@@ -34,14 +35,8 @@ int main(int __attribute((unused)) argc, char **argv)
 			_free(2, input, tokens);
 			continue;
 		}
-		if (execute(tokens, cmd) == -100)
-		{
-			_write_err(argv[0], "An error occurred while executing -> ", tokens[0]);
-		}
+		execute(tokens, cmd);
 		_free(3, input, tokens, cmd);
 	}
 	return (0);
 }
-
-
-
