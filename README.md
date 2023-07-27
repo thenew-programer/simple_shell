@@ -1,2 +1,2 @@
 # simple_shell (ALX PROJECT)
-![explanition](./media/simple_shell.png)
+![simple_shell](./media/simple_shell.png)
